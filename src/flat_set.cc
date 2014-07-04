@@ -1,8 +1,52 @@
 #include "flat_set.hh"
 
-Flat_set::Flat_set()
+template <class T>
+Flat_set<T>::Flat_set()
+{
+    cnt = std::vector<T>();
+}
+template <class T>
+Flat_set<T>::~Flat_set()
 {
 }
-Flat_set::~Flat_set()
+
+template <class T>
+bool Flat_set<T>::contain(T elt)
 {
+    for (auto e : cnt)
+    {
+        if (e == elt)
+            return true;
+    }
+    return false;
+}
+
+template <class T>
+void Flat_set<T>::insert_in_place(T elt)
+{
+    cnt.push_back(elt);
+}
+
+template <class T>
+bool Flat_set<T>::insert(T elt)
+{
+    if (!contain(elt))
+        insert_in_place(elt);
+    else
+        return false;
+    return true;
+}
+
+template <class T>
+void Flat_set<T>::print(std::ostream& os)
+{
+    for (auto e : cnt)
+        os << e << " ";
+}
+
+template <class T>
+std::ostream& operator<<(std::ostream& os, Flat_set<T> set)
+{
+    set.print(os);
+    return os;
 }
