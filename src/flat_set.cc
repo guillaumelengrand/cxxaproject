@@ -30,11 +30,22 @@ void Flat_set<T>::insert_in_place(T elt)
 template <class T>
 bool Flat_set<T>::insert(T elt)
 {
-    if (!contain(elt))
+    auto it = cnt.begin();
+    for (; it != cnt.end() && *it < elt; it++)
+        continue;
+    if (it == cnt.end())
+        cnt.push_back(elt);
+    else if (*it == elt)
+        return false;
+    else
+        cnt.insert(it, elt);
+    return true;
+
+    /*if (!contain(elt))
         insert_in_place(elt);
     else
         return false;
-    return true;
+    return true;*/
 }
 
 template <class T>
