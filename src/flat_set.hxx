@@ -12,13 +12,25 @@ Flat_set<T>::~Flat_set()
 }
 
 template <class T>
-bool Flat_set<T>::contain(T elt)
+size_t Flat_set<T>::count(T elt)
 {
-    for (auto e : cnt)
-    {
-        if (e == elt)
-            return true;
-    }
+    auto it = cnt.begin();
+    for (; it != cnt.end() && *it < elt; it++)
+        continue;
+    if (it != cnt.end() && *it == elt)
+        return 1;
+    return 0;
+}
+
+
+template <class T>
+bool Flat_set<T>::find(T elt)
+{
+    auto it = cnt.begin();
+    for (; it != cnt.end() && *it < elt; it++)
+        continue;
+    if (it != cnt.end() && *it == elt)
+        return true;
     return false;
 }
 

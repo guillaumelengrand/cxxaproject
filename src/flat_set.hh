@@ -19,6 +19,9 @@ class Flat_set
         size_t max_size();
         bool empty();
 
+        size_t count(T elt);
+        bool find(T elt);
+
         void print(std::ostream& os);
 
     private:
