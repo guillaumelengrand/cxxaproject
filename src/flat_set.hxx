@@ -23,12 +23,6 @@ bool Flat_set<T>::contain(T elt)
 }
 
 template <class T>
-void Flat_set<T>::insert_in_place(T elt)
-{
-    cnt.push_back(elt);
-}
-
-template <class T>
 bool Flat_set<T>::insert(T elt)
 {
     auto it = cnt.begin();
@@ -40,6 +34,19 @@ bool Flat_set<T>::insert(T elt)
         return false;
     else
         cnt.insert(it, elt);
+    return true;
+}
+
+template <class T>
+bool Flat_set<T>::erase(T elt)
+{
+    auto it = cnt.begin();
+    for (; it != cnt.end() && *it < elt; it++)
+        continue;
+    if (it != cnt.end() && *it == elt)
+        cnt.erase(it);
+    else
+        return false;
     return true;
 }
 

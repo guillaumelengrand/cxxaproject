@@ -10,7 +10,9 @@ class Flat_set
     public:
         Flat_set();
         ~Flat_set();
+
         bool insert(T elt);
+        bool erase(T elt);
 
         size_t size();
         size_t max_size();
