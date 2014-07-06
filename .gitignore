@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.obj
+*.d
 
 # Compiled Dynamic libraries
 *.so
@@ -19,6 +20,7 @@
 *.exe
 *.out
 *.app
+test
 
 # Tmp files
 .*.swp
