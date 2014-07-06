@@ -11,7 +11,10 @@ class Flat_set
         Flat_set();
         ~Flat_set();
         bool insert(T elt);
+
+        int size();
         bool empty();
+
         void print(std::ostream& os);
 
     private:

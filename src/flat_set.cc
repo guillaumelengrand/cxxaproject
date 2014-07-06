@@ -43,6 +43,12 @@ bool Flat_set<T>::insert(T elt)
 }
 
 template <class T>
+int Flat_set<T>::size()
+{
+    return cnt.size();
+}
+
+template <class T>
 bool Flat_set<T>::empty()
 {
     return cnt.empty();
