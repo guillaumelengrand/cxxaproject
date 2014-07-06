@@ -12,7 +12,8 @@ class Flat_set
         ~Flat_set();
         bool insert(T elt);
 
-        int size();
+        size_t size();
+        size_t max_size();
         bool empty();
 
         void print(std::ostream& os);

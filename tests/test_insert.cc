@@ -8,7 +8,7 @@ int main()
     for (int i = 0; i < 10; i++)
         int_set.insert(rand() % 100);
     std::cout << int_set << std::endl;
-    std::cout << int_set.empty() << " " << int_set.size() << std::endl;
+    std::cout << int_set.empty() << " " << int_set.size() << " " << int_set.max_size() << std::endl;
 
     return 0;
 }
