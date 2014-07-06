@@ -13,6 +13,7 @@ class Flat_set
 
         bool insert(T elt);
         bool erase(T elt);
+        void clear();
 
         size_t size();
         size_t max_size();

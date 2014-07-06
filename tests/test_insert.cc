@@ -14,6 +14,8 @@ int main()
     std::cout << "is empty ? " << int_set.empty() << std::endl <<
             "size: " << int_set.size() <<std::endl <<
             "max_size: " << int_set.max_size() << std::endl;
+    int_set.clear();
+    std::cout << "after Clean: " << int_set << " Size: " << int_set.size() << std::endl;
 
     return 0;
 }

@@ -51,6 +51,12 @@ bool Flat_set<T>::erase(T elt)
 }
 
 template <class T>
+void Flat_set<T>::clear()
+{
+    cnt.clear();
+}
+
+template <class T>
 size_t Flat_set<T>::size()
 {
     return cnt.size();
