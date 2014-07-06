@@ -11,6 +11,7 @@ class Flat_set
         Flat_set();
         ~Flat_set();
         bool insert(T elt);
+        bool empty();
         void print(std::ostream& os);
 
     private:

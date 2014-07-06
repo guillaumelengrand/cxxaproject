@@ -40,12 +40,12 @@ bool Flat_set<T>::insert(T elt)
     else
         cnt.insert(it, elt);
     return true;
+}
 
-    /*if (!contain(elt))
-        insert_in_place(elt);
-    else
-        return false;
-    return true;*/
+template <class T>
+bool Flat_set<T>::empty()
+{
+    return cnt.empty();
 }
 
 template <class T>
