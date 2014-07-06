@@ -1,4 +1,5 @@
-#include "flat_set.hh"
+#ifndef FLAT_SET_HXX
+# define FLAT_SET_HXX
 
 template <class T>
 Flat_set<T>::Flat_set()
@@ -73,3 +74,5 @@ std::ostream& operator<<(std::ostream& os, Flat_set<T> set)
     set.print(os);
     return os;
 }
+
+#endif /* !FLAT_SET_HXX */

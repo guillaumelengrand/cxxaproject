@@ -11,13 +11,13 @@ INC=includes/
 OBJS=$(SRCT:.cc=.o)
 DEPS=$(SRCT:.cc=.d)
 
-all: $(LIB)
+all:
 
 $(OUT): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-$(LIB) : $(SRC)
-	$(CXX) $(CXXFLAGS) -shared -fPIC -o $@ $^
+#$(LIB) : $(SRC)
+#	$(CXX) $(CXXFLAGS) -shared -fPIC -o $@ $^
 
 check: $(OUT)
 

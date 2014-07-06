@@ -27,4 +27,6 @@ class Flat_set
 template <class T>
 std::ostream& operator<<(std::ostream& os, Flat_set<T> set);
 
+# include "flat_set.hxx"
+
 #endif /* !FLAT_SET_HH */

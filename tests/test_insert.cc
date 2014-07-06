@@ -1,4 +1,4 @@
-#include "../src/flat_set.cc"
+#include "../src/flat_set.hh"
 #include <stdlib.h>
 
 int main()
