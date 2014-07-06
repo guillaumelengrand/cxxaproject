@@ -8,7 +8,7 @@ template <class T>
 class Flat_set
 {
     public:
-        typedef T data_type;
+        //typedef T data_type;
 
         Flat_set();
         ~Flat_set();
@@ -24,11 +24,11 @@ class Flat_set
         size_t count(T elt);
         bool find(T elt);
 
-        typedef typename std::vector<data_type>::iterator it;
-        it begin() { return cnt.begin(); }
-        it end() { return cnt.end(); }
-        it rbegin() { return cnt.rbegin(); }
-        it rend() { return cnt.rend(); }
+        typedef typename std::vector<T>::iterator it;
+        it begin();
+        it end();
+        it rbegin();
+        it rend();
 
 
         void print(std::ostream& os);

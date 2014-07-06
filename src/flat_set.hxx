@@ -87,6 +87,30 @@ bool Flat_set<T>::empty()
 }
 
 template <class T>
+typename std::vector<T>::iterator Flat_set<T>::begin()
+{
+    return cnt.begin();
+}
+
+template <class T>
+typename std::vector<T>::iterator Flat_set<T>::end()
+{
+    return cnt.end();
+}
+
+template <class T>
+typename std::vector<T>::iterator Flat_set<T>::rbegin()
+{
+    return cnt.rbegin();
+}
+
+template <class T>
+typename std::vector<T>::iterator Flat_set<T>::rend()
+{
+    return cnt.rend();
+}
+
+template <class T>
 void Flat_set<T>::print(std::ostream& os)
 {
     for (auto e : cnt)
