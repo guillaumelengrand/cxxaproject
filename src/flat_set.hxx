@@ -6,6 +6,7 @@ Flat_set<T>::Flat_set()
 {
     cnt = std::vector<T>();
 }
+
 template <class T>
 Flat_set<T>::~Flat_set()
 {
@@ -14,22 +15,36 @@ Flat_set<T>::~Flat_set()
 template <class T>
 size_t Flat_set<T>::count(T elt)
 {
-    auto it = cnt.begin();
-    for (; it != cnt.end() && *it < elt; it++)
-        continue;
-    if (it != cnt.end() && *it == elt)
-        return 1;
+    int deb = 0;
+    int fin = cnt.size();
+    while (deb <= fin)
+    {
+        int pivot = (deb + fin) / 2;
+        if (cnt[pivot] == elt)
+            return 1;
+        else if (elt > cnt[pivot])
+            deb = pivot + 1;
+        else
+            fin = pivot - 1;
+    }
     return 0;
 }
 
 template <class T>
 bool Flat_set<T>::find(T elt)
 {
-    auto it = cnt.begin();
-    for (; it != cnt.end() && *it < elt; it++)
-        continue;
-    if (it != cnt.end() && *it == elt)
-        return true;
+    int deb = 0;
+    int fin = cnt.size();
+    while (deb <= fin)
+    {
+        int pivot = (deb + fin) / 2;
+        if (cnt[pivot] == elt)
+            return true;
+        else if (elt > cnt[pivot])
+            deb = pivot + 1;
+        else
+            fin = pivot - 1;
+    }
     return false;
 }
 
