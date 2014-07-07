@@ -8,8 +8,6 @@ template <class T>
 class Flat_set
 {
     public:
-        //typedef T data_type;
-
         Flat_set();
         ~Flat_set();
 

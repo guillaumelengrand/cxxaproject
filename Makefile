@@ -1,9 +1,9 @@
 CXX=g++
-CPPFLAGS=-MMD -I $(INC)
+CPPFLAGS=-MMD -I /usr/include/python2.7
 CXXFLAGS=-Werror -Wextra -Wall -std=c++11 -pedantic
 
 OUT=test
-LIB=flat_set.so
+LIB=$(addprefix $(DIR),flat_set.so)
 DIR=src/
 SRC= $(addprefix $(DIR), flat_set.cc)
 SRCT=tests/test_insert.cc
@@ -11,13 +11,13 @@ INC=includes/
 OBJS=$(SRCT:.cc=.o)
 DEPS=$(SRCT:.cc=.d)
 
-all:
+all: $(LIB)
 
 $(OUT): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-#$(LIB) : $(SRC)
-#	$(CXX) $(CXXFLAGS) -shared -fPIC -o $@ $^
+$(LIB) : $(SRC)
+	$(CXX) $(CXXFLAGS) -shared -fPIC -o $@ $^ -lpython2.7 -lboost_python -lboost_system
 
 check: $(OUT)
 
