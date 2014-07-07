@@ -22,7 +22,6 @@ size_t Flat_set<T>::count(T elt)
     return 0;
 }
 
-
 template <class T>
 bool Flat_set<T>::find(T elt)
 {
@@ -37,16 +36,32 @@ bool Flat_set<T>::find(T elt)
 template <class T>
 bool Flat_set<T>::insert(T elt)
 {
-    auto it = cnt.begin();
-    for (; it != cnt.end() && *it < elt; it++)
-        continue;
-    if (it == cnt.end())
+    if (cnt.size() == 0 || cnt[cnt.size() - 1] < elt)
+    {
         cnt.push_back(elt);
-    else if (*it == elt)
-        return false;
+        return true;
+    }
     else
-        cnt.insert(it, elt);
-    return true;
+    {
+        int deb = 0;
+        int fin = cnt.size();
+        int pivot = (deb + fin) / 2;
+        while (deb <= fin)
+        {
+            if (cnt[pivot] == elt)
+                return false;
+            else if (elt > cnt[pivot])
+                deb = pivot + 1;
+            else
+                fin = pivot - 1;
+            pivot = (deb + fin) / 2;
+        }
+        if (cnt[pivot] > elt)
+            cnt.insert(cnt.begin() + pivot, elt);
+        else
+            cnt.insert(cnt.begin() + pivot + 1, elt);
+        return true;
+    }
 }
 
 template <class T>
@@ -108,6 +123,13 @@ template <class T>
 typename std::vector<T>::iterator Flat_set<T>::rend()
 {
     return cnt.rend();
+}
+
+template <class T>
+void Flat_set<T>::draw()
+{
+    print(std::cout);
+    std::cout << std::endl;
 }
 
 template <class T>

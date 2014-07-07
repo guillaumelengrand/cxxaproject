@@ -8,6 +8,8 @@ template <class T>
 class Flat_set
 {
     public:
+        typedef typename std::vector<T>::iterator it;
+
         Flat_set();
         ~Flat_set();
 
@@ -22,7 +24,6 @@ class Flat_set
         size_t count(T elt);
         bool find(T elt);
 
-        typedef typename std::vector<T>::iterator it;
         it begin();
         it end();
         it rbegin();
@@ -30,6 +31,7 @@ class Flat_set
 
 
         void print(std::ostream& os);
+        void draw();
 
     private:
         bool contain(T elt);
