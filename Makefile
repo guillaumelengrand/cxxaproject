@@ -10,6 +10,7 @@ SRCT=tests/test_insert.cc
 INC=includes/
 OBJS=$(SRCT:.cc=.o)
 DEPS=$(SRCT:.cc=.d)
+TAR=lengra_g-cxxaproject.tar.bz2
 
 all: $(LIB)
 
@@ -21,15 +22,14 @@ $(LIB) : $(SRC)
 
 check: $(OUT)
 
-#doc:
-#	doxygen Doxyfile
-
 clean:
-	$(RM) $(OUT) $(OBJS) $(DEPS) $(LIB)
-#	$(RM) -r doc/html doc/latex
+	$(RM) $(OUT) $(OBJS) $(DEPS) $(LIB) $(TAR)
 
 distclean: clean
 	$(RM) makefile.rules
+
+export: clean
+	git archive HEAD --prefix=lengra_g-cxxaproject/ | bzip2 > $(TAR)
 
 .PHONY: clean all distclean check doc
 -include $(DEPS)
