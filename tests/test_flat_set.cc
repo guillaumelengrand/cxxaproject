@@ -45,6 +45,10 @@ int main()
                 << (int_set.find(elts[pos] % 50) ? "\033[32mTrue\033[0m" : "\033[31mFalse\033[0m")
                 << std::endl;
     }
+    std::cout << "\033[1;34mFind \033[0m" << 200 << " "
+                << (int_set.find(200) ? "\033[32mTrue\033[0m" : "\033[31mFalse\033[0m")
+                << std::endl;
+
 
     int_set.clear();
     std::cout << std::endl << "\033[1;32mTest clean of the set: \033[0m"
