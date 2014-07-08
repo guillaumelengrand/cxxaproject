@@ -17,6 +17,7 @@ DEP=$(BEN:.cc=.d)
 TAR=lengra_g-cxxaproject.tar.bz2
 
 all: $(LIB)
+	python src/flat_set.py
 
 $(OUT): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $^
@@ -29,8 +30,12 @@ $(LIB) : $(SRC)
 check: $(OUT)
 	@./test
 
-bench: $(OUT2)
+bench: $(LIB) $(OUT2)
+	@echo "\033[1;32mBench C++: \033[0m"
 	@./test_bench
+	@echo "\n"
+	@echo "\033[1;32mBench Pyhon: \033[0m"
+	@python src/flat_set.py bench
 
 clean:
 	$(RM) $(OUT) $(OBJS) $(DEPS) $(LIB) $(TAR) $(OUT2) $(OBJ) $(DEP)
