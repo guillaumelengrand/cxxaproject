@@ -21,6 +21,7 @@
 *.out
 *.app
 test
+test_bench
 
 # Tmp files
 .*.swp
