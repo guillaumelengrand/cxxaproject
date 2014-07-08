@@ -1,7 +1,6 @@
 #include "../src/flat_set.hh"
 #include <stdlib.h>
 #include <sys/time.h>
-#include <set>
 #include <vector>
 
 #define MAX 10
