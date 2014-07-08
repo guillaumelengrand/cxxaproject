@@ -13,6 +13,7 @@ INC=includes/
 OBJS=$(SRCT:.cc=.o)
 OBJ=$(BEN:.cc=.o)
 DEPS=$(SRCT:.cc=.d)
+DEP=$(BEN:.cc=.d)
 TAR=lengra_g-cxxaproject.tar.bz2
 
 all: $(LIB)
@@ -32,14 +33,10 @@ bench: $(OUT2)
 	@./test_bench
 
 clean:
-	$(RM) $(OUT) $(OBJS) $(DEPS) $(LIB) $(TAR) $(OUT2)
-
-distclean: clean
-	$(RM) makefile.rules
+	$(RM) $(OUT) $(OBJS) $(DEPS) $(LIB) $(TAR) $(OUT2) $(OBJ) $(DEP)
 
 export: clean
 	git archive HEAD --prefix=lengra_g-cxxaproject/ | bzip2 > $(TAR)
 
-.PHONY: clean all distclean check doc
+.PHONY: clean all check doc bench
 -include $(DEPS)
--include makefile.rules
