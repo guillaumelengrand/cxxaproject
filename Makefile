@@ -21,6 +21,7 @@ $(LIB) : $(SRC)
 	$(CXX) $(CXXFLAGS) -shared -fPIC -o $@ $^ -lpython2.7 -lboost_python -lboost_system
 
 check: $(OUT)
+	@./test
 
 clean:
 	$(RM) $(OUT) $(OBJS) $(DEPS) $(LIB) $(TAR)
