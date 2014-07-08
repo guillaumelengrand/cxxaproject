@@ -15,7 +15,7 @@ int main()
     for (int i = 0; i < MAX; i++)
     {
         int r = rand() % MAXM;
-        std::cout << "\033[1;34mAdd " << r << " in the set => \033[0m";
+        std::cout << "\033[1;34mAdd \033[0m" << r << "\033[1;34m in the set => \033[0m";
         if (int_set.insert(r))
         {
             int_set.draw();
@@ -35,14 +35,14 @@ int main()
     for (int i = 0; i < 4; i++)
     {
         int pos = rand() % int_set.size();
-        std::cout << "Find " << elts[pos] << " "
+        std::cout << "\033[1;34mFind \033[0m" << elts[pos] << " "
                 << (int_set.find(elts[pos]) ? "\033[32mTrue\033[0m" : "\033[31mFalse\033[0m")
                 << std::endl;
     }
     for (int i = 0; i < 4; i++)
     {
         int pos = rand() % int_set.size();
-        std::cout << "Find " << elts[pos] % 50 << " "
+        std::cout << "\033[1;34mFind \033[0m" << elts[pos] % 50 << " "
                 << (int_set.find(elts[pos] % 50) ? "\033[32mTrue\033[0m" : "\033[31mFalse\033[0m")
                 << std::endl;
     }
