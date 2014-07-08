@@ -1,2 +1,9 @@
 cxxaproject
 ===========
+In folder src you can find the header flat_set.hh to include for use the
+my flat implementation of set.
+
+The makefile enable some rules:
+    - By default it create the dynamic library to bind set in python
+    - check: launch some test for the flat_set.
+    - bench: launch some bench with c++ set and python set.
