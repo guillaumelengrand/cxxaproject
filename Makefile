@@ -6,7 +6,7 @@ OUT=test
 LIB=$(addprefix $(DIR),flat_set.so)
 DIR=src/
 SRC= $(addprefix $(DIR), flat_set.cc)
-SRCT=tests/test_insert.cc
+SRCT=tests/test_flat_set.cc
 INC=includes/
 OBJS=$(SRCT:.cc=.o)
 DEPS=$(SRCT:.cc=.d)
